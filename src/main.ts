@@ -7,7 +7,7 @@ let stats: any;
 
 let scene: any;
 
-let mouseX = 0, mouseY = 0;
+let mouseX = 0;
 
 let windowWidth: any, windowHeight: any;
 
@@ -40,7 +40,7 @@ const views = [
     up: [0, 0, 1],
     fov: 45,
     camera: new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000),
-    updateCamera: function (camera: THREE.Camera, scene: THREE.Scene, mouseX: number) {
+    updateCamera: function (camera: THREE.Camera, _: THREE.Scene, mouseX: number) {
 
       camera.position.x -= mouseX * 0.05;
       camera.position.x = Math.max(Math.min(camera.position.x, 2000), - 2000);
@@ -154,7 +154,7 @@ views[2].camera.layers.enable(2);
 function onDocumentMouseMove(event: any) {
 
   mouseX = (event.clientX - windowWidth / 2);
-  mouseY = (event.clientY - windowHeight / 2);
+  //mouseY = (event.clientY - windowHeight / 2);
 
 }
 
